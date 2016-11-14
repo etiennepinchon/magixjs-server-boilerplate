@@ -1,12 +1,13 @@
 ##############################################################
 # REQUIRE
 
-restify = require('restify')
+restify 		= require('restify')
+CookieParser 	= require('restify-cookies')
 
 ##############################################################
 # CONFIG
 
-server_port = 80
+server_port = 8080
 server_dir = 'public/'
 
 ######################################################
@@ -33,7 +34,6 @@ server.get /\/?/, (req, res, next) ->
 server.__port = server_port
 server.start = (message)->
 	server.listen server.__port, 'localhost', ->
-		if message
-			console.log(('MagiX: Project launched! Running! Address ' + server.url).green)
+		console.log('MagiX: Project launched! Running! Address ' + server.url)
 
 server.start(yes)

@@ -1,8 +1,10 @@
-var restify, server, server_dir, server_port;
+var CookieParser, restify, server, server_dir, server_port;
 
 restify = require('restify');
 
-server_port = 80;
+CookieParser = require('restify-cookies');
+
+server_port = 8080;
 
 server_dir = 'public/';
 
@@ -39,9 +41,7 @@ server.__port = server_port;
 
 server.start = function(message) {
   return server.listen(server.__port, 'localhost', function() {
-    if (message) {
-      return console.log(('MagiX: Project launched! Running! Address ' + server.url).green);
-    }
+    return console.log('MagiX: Project launched! Running! Address ' + server.url);
   });
 };
 
