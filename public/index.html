@@ -3,13 +3,23 @@
 	<title>boilerplate</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" type="image/png" href="https://magixjs.com/default/favicon/icon.png">
+	<link rel="icon" type="image/png" href="//magixjs.com/documents/favicon/icon.png">
 	
 	<!-- SCRIPT -->
-	<script type="text/javascript" src="https://magixjs.com/framework/1.0/magix.loader.min.js"></script>
-	<script type="text/javascript" src="/build/catalog.js"></script>
-	<script type="text/javascript" src="/build/index.js"></script>
+	<script type="text/javascript" src="https://s3.amazonaws.com/data.magixjs.com/framework/1.0/magix.loader.min.js"></script>
+	<script type="text/javascript">
+		var paths = ["/build/catalog.js", "/build/index.js"];
+		for (var i = 0; i < paths.length; i++) {
+			var scr = document.createElement("script");
+			scr.src = paths[i]+"?t=" + new Date().getTime();
+			document.getElementsByTagName("head")[0].appendChild(scr);
+		}
+	</script>
 </head>
 <body>
+	<!-- LIVE RELOAD -->
+	<script type="text/javascript">
+		!function(){function k(){b&&console.log("Waiting for socket"),setTimeout(function(){d=new WebSocket(c),d.onopen=h,d.onclose=i,d.onmessage=g,d.onerror=j},250)}var d,b=!1,c=window.location.origin.replace(/^http(s?):\/\//,"ws$1://");if(b&&console.log("Reload Script Loaded"),!("WebSocket"in window))throw new Error("Reload only works with browsers that support WebSockets");var f,e=!1;window.addEventListener("load",function(){b===!0&&console.log("Page Loaded - Calling webSocketWaiter"),k()}),window.addEventListener("beforeunload",function(){b===!0&&console.log("Navigated away from the current URL"),f=!0});var g=function(a){"reload"===a.data&&d.close()},h=function(a){b&&console.log("Socket Opened"),e===!0&&f!==!0&&(b&&console.log("Reloaded"),e=!1,window.location.reload())},i=function(a){b&&console.log("Socket Closed - Calling webSocketWaiter"),e=!0,k()},j=function(a){b&&console.log(a)}}();
+	</script>
 </body>
 </html>

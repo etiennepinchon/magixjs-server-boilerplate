@@ -1,21 +1,20 @@
 App.run(function() {
-	var hello;
+	// Import font
+	Font('Quicksand', '700,400,300');
 
-	Font('Quicksand', '400,300');
-
+	// Create page
 	App.page = new Page({
-	  backgroundColor: white
-	});
+		backgroundColor: '#6600FF'
+	})
 
-	hello = new Text({
-	  text: 'magiX',
-	  width: 300,
-	  fontSize: 90,
-	  fontWeight: 300,
-	  color: black,
-	  spacing: 4
-	});
+	var hello = new Text({
+		text: 'Hello!',
+		width: auto,
+		fontSize: 90,
+		fontWeight: 700,
+		color: white,
+		spacing: 4
+		});
 
 	hello.center();
-
 });

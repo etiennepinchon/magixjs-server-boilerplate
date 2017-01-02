@@ -1,2 +1,2 @@
-window.__BUILD = 1479104445036;
-MagiX.load(["/build/App.js"]);
+window.__BUILD = 1483349759912;
+MagiX.load('/build/App.js');
